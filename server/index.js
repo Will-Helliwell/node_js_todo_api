@@ -2,6 +2,12 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 
+
+const pool = require('./db.js');
+
+const test = pool.query("SELECT * FROM todo");
+console.log(test);
+
 // Middleware
 app.use(cors());
 app.use(express.json());
