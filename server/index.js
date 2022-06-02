@@ -22,8 +22,27 @@ app.post("/todos", async (req, res) => {
 });
 
 // Get all to-dos
+app.get("/todos", async (req, res) => {
+    try {
+        console.log('in get all route');
+        const allTodos = await pool.query("SELECT * FROM todo");
+            res.json(allTodos.rows);
+    } catch (error) {
+        console.log(error);
+    }
+    });
 
 // Get a single to-do
+app.get("/todos/:id", async(req, res) => {
+    try {
+        const { id } = req.params;
+        const todo = await pool.query("SELECT * FROM todo WHERE todo_id = $1",
+        [id]);
+        res.json(todo.rows);
+    } catch (err) {
+        console.log(err);
+    }
+});
 
 // Update a to-do
 
