@@ -24,7 +24,6 @@ app.post("/todos", async (req, res) => {
 // Get all to-dos
 app.get("/todos", async (req, res) => {
     try {
-        console.log('in get all route');
         const allTodos = await pool.query("SELECT * FROM todo");
         res.json(allTodos.rows);
     } catch (error) {
@@ -57,6 +56,15 @@ app.put("/todos/:id", async (req, res) => {
 });
 
 // Delete a to-do
+app.delete("/todos/:id", async (req, res) =>{
+    try {
+        const {id} = req.params;
+        const deletedTodo = pool.query("DELETE FROM todo WHERE todo_id = $1", [id]);
+        res.json("Todo was deleted!");
+    } catch (error) {
+        console.error(error.message)
+    }
+});
 
 
 const port_number = 5000;
