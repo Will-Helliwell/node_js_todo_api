@@ -1,4 +1,4 @@
-# pern_todo
+# node_js_todo_api
 
 ## Learnings
 
