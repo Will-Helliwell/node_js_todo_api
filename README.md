@@ -1,5 +1,25 @@
 # node_js_todo_api
 
+A simple backend for a to-do app, used for myself as an introduction to NodeJS and Express framework (see learnings below).
+
+[Now building a frontend](https://github.com/Will-Helliwell/node_ejs_todo) to interact with this using EJS templating.
+
+## Functionality
+
+API routes:
+- Add a new todo
+- Delete a todo
+- Get all todos
+- Get a single todo
+- Update a single todo
+
+## To run 
+
+- Clone this template
+- Install dependencies: `cd server && npm install`
+- Start the server locally `npx nodemon index`
+- API calls can now be made using Postman via http://localhost:5000
+
 ## Learnings
 
 - cors
